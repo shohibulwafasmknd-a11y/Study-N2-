@@ -1,0 +1,10 @@
+{
+  "name": "Study N2",
+  "short_name": "Study N2",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f5ff",
+  "theme_color": "#6842d8",
+  "description": "Aplikasi belajar JLPT N2",
+  "icons": []
+}
