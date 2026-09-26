@@ -1,83 +1,513 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>N2 Study</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Study N2</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f5ff;
-      color: #222;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      background: #ffffff;
-      padding: 22px 20px 15px;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f5ff;
+  color: #222;
+}
 
-    header h1 {
-      margin: 0;
-      color: #5133a5;
-      font-size: 28px;
-    }
+header {
+  background: #ffffff;
+  padding: 22px 20px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
 
-    header p {
-      margin: 6px 0 0;
-      color: #666;
-    }
+header h1 {
+  margin: 0;
+  color: #5133a5;
+  font-size: 28px;
+}
 
-    .container {
-      padding: 18px;
-      padding-bottom: 90px;
-    }
+header p {
+  margin: 6px 0 0;
+  color: #666;
+}
 
-    .progress-card {
-      background: white;
-      border-radius: 18px;
-      padding: 20px;
-      box-shadow: 0 3px 12px #00000012;
-      margin-bottom: 15px;
-    }
+.container {
+  padding: 18px;
+  padding-bottom: 90px;
+}
 
-    .progress-title {
-      font-size: 18px;
-      font-weight: bold;
-    }
+.progress-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 3px 12px #00000012;
+  margin-bottom: 15px;
+}
 
-    .progress-number {
-      font-size: 38px;
-      font-weight: bold;
-      color: #5133a5;
-      margin: 8px 0;
-    }
+.progress-title {
+  font-size: 18px;
+  font-weight: bold;
+}
 
-    .progress-bar {
-      height: 10px;
-      background: #e5e0f5;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+.progress-number {
+  font-size: 38px;
+  font-weight: bold;
+  color: #5133a5;
+  margin: 8px 0;
+}
 
-    .progress-fill {
-      width: 35%;
-      height: 100%;
-      background: #6842d8;
-    }
+.progress-bar {
+  height: 10px;
+  background: #e5e0f5;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
+.progress-fill {
+  width: 35%;
+  height: 100%;
+  background: #6842d8;
+}
 
-    .stat
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.stat {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 3px 10px #00000010;
+}
+
+.stat-number {
+  font-size: 25px;
+  font-weight: bold;
+  color: #5133a5;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 22px 0 12px;
+}
+
+.subject {
+  background: white;
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 10px #00000010;
+  cursor: pointer;
+}
+
+.subject:active {
+  transform: scale(0.98);
+}
+
+.subject-title {
+  font-size: 19px;
+  font-weight: bold;
+  color: #5133a5;
+}
+
+.subject-text {
+  color: #666;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 13px;
+  margin-top: 12px;
+  background: #6842d8;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #ddd;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 10px 5px;
+}
+
+.nav-item {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+}
+
+.nav-icon {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.nav-item.active {
+  color: #6842d8;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px #00000010;
+}
+
+.word {
+  font-size: 30px;
+  font-weight: bold;
+  color: #5133a5;
+}
+
+.meaning {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.example {
+  margin-top: 12px;
+  padding: 12px;
+  background: #f5f2ff;
+  border-radius: 10px;
+  line-height: 1.7;
+}
+
+.back {
+  background: #777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Study N2 🇯🇵</h1>
+  <p>Belajar JLPT N2 sedikit demi sedikit</p>
+</header>
+
+<div class="container">
+
+  <!-- HOME -->
+  <div id="home">
+
+    <div class="progress-card">
+      <div class="progress-title">Progress N2</div>
+      <div class="progress-number">35%</div>
+
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+
+      <p>Terus belajar, kamu pasti bisa! 💪</p>
+    </div>
+
+    <div class="stats">
+
+      <div class="stat">
+        <div class="stat-number">120</div>
+        <div class="stat-label">Kanji</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">350</div>
+        <div class="stat-label">Goi</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">45</div>
+        <div class="stat-label">Bunpou</div>
+      </div>
+
+      <div class="stat">
+        <div class="stat-number">18</div>
+        <div class="stat-label">Dokkai</div>
+      </div>
+
+    </div>
+
+    <div class="section-title">Materi N2</div>
+
+    <div class="subject" onclick="showPage('kanji')">
+      <div class="subject-title">🈶 Kanji N2</div>
+      <div class="subject-text">
+        Pelajari kanji N2 dan cara penggunaannya.
+      </div>
+    </div>
+
+    <div class="subject" onclick="showPage('goi')">
+      <div class="subject-title">📝 Goi / Kosakata</div>
+      <div class="subject-text">
+        Latihan kosakata Jepang setiap hari.
+      </div>
+    </div>
+
+    <div class="subject" onclick="showPage('bunpou')">
+      <div class="subject-title">📚 Bunpou / Grammar</div>
+      <div class="subject-text">
+        Pelajari pola tata bahasa JLPT N2.
+      </div>
+    </div>
+
+    <div class="subject" onclick="showPage('dokkai')">
+      <div class="subject-title">📖 Dokkai</div>
+      <div class="subject-text">
+        Latihan membaca teks bahasa Jepang.
+      </div>
+    </div>
+
+    <div class="subject" onclick="showPage('choukai')">
+      <div class="subject-title">🎧 Choukai</div>
+      <div class="subject-text">
+        Latihan mendengarkan bahasa Jepang.
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- KANJI -->
+  <div id="kanji" class="hidden">
+
+    <div class="section-title">🈶 Kanji N2</div>
+
+    <div class="card">
+      <div class="word">災害</div>
+      <div class="meaning">さいがい — bencana</div>
+
+      <div class="example">
+        災害に備える。<br>
+        さいがいにそなえる。<br>
+        Bersiap menghadapi bencana.
+      </div>
+
+      <button onclick="nextKanji()">Kanji berikutnya</button>
+    </div>
+
+    <button class="back" onclick="showPage('home')">
+      ← Kembali
+    </button>
+
+  </div>
+
+
+  <!-- GOI -->
+  <div id="goi" class="hidden">
+
+    <div class="section-title">📝 Goi N2</div>
+
+    <div class="card">
+      <div class="word">警戒</div>
+      <div class="meaning">
+        けいかい — waspada / kewaspadaan
+      </div>
+
+      <div class="example">
+        台風に警戒する。<br>
+        Waspada terhadap topan.
+      </div>
+
+      <button onclick="nextGoi()">Kosakata berikutnya</button>
+    </div>
+
+    <button class="back" onclick="showPage('home')">
+      ← Kembali
+    </button>
+
+  </div>
+
+
+  <!-- BUNPOU -->
+  <div id="bunpou" class="hidden">
+
+    <div class="section-title">📚 Bunpou N2</div>
+
+    <div class="card">
+
+      <div class="word">〜ようがない</div>
+
+      <div class="meaning">
+        Tidak mungkin untuk...
+      </div>
+
+      <div class="example">
+        そんなことは信じようがない。<br><br>
+        Hal seperti itu tidak mungkin dipercaya.
+      </div>
+
+      <button onclick="nextGrammar()">
+        Grammar berikutnya
+      </button>
+
+    </div>
+
+    <button class="back" onclick="showPage('home')">
+      ← Kembali
+    </button>
+
+  </div>
+
+
+  <!-- DOKKAI -->
+  <div id="dokkai" class="hidden">
+
+    <div class="section-title">📖 Dokkai N2</div>
+
+    <div class="card">
+
+      <h2>災害に備える</h2>
+
+      <p>
+        日本では地震や台風などの災害が起こることがあります。
+        そのため、普段から災害に備えることが大切です。
+      </p>
+
+      <p>
+        非常食や水などを準備しておくと安心です。
+      </p>
+
+      <button onclick="alert('Jawaban latihan akan ditambahkan.')">
+        Latihan soal
+      </button>
+
+    </div>
+
+    <button class="back" onclick="showPage('home')">
+      ← Kembali
+    </button>
+
+  </div>
+
+
+  <!-- CHOUKAI -->
+  <div id="choukai" class="hidden">
+
+    <div class="section-title">🎧 Choukai N2</div>
+
+    <div class="card">
+
+      <h2>Listening Practice</h2>
+
+      <p>
+        Dengarkan percakapan bahasa Jepang dan coba
+        pahami informasi pentingnya.
+      </p>
+
+      <button onclick="alert('Materi audio akan ditambahkan.')">
+        ▶ Mulai latihan
+      </button>
+
+    </div>
+
+    <button class="back" onclick="showPage('home')">
+      ← Kembali
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- NAVIGATION -->
+<div class="bottom-nav">
+
+  <div class="nav-item active" onclick="showPage('home')">
+    <span class="nav-icon">🏠</span>
+    Home
+  </div>
+
+  <div class="nav-item" onclick="showPage('kanji')">
+    <span class="nav-icon">🈶</span>
+    Kanji
+  </div>
+
+  <div class="nav-item" onclick="showPage('goi')">
+    <span class="nav-icon">📝</span>
+    Goi
+  </div>
+
+  <div class="nav-item" onclick="showPage('bunpou')">
+    <span class="nav-icon">📚</span>
+    Bunpou
+  </div>
+
+</div>
+
+
+<script>
+
+function showPage(page) {
+
+  const pages = [
+    "home",
+    "kanji",
+    "goi",
+    "bunpou",
+    "dokkai",
+    "choukai"
+  ];
+
+  pages.forEach(function(id) {
+    document.getElementById(id).classList.add("hidden");
+  });
+
+  document.getElementById(page).classList.remove("hidden");
+
+  window.scrollTo(0, 0);
+}
+
+
+function nextKanji() {
+  alert("Kanji berikutnya akan kita tambahkan.");
+}
+
+
+function nextGoi() {
+  alert("Kosakata berikutnya akan kita tambahkan.");
+}
+
+
+function nextGrammar() {
+  alert("Grammar berikutnya akan kita tambahkan.");
+}
+
+</script>
+
+</body>
+      </html>
