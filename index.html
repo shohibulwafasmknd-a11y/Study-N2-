@@ -313,18 +313,14 @@ button:active {
     <div class="section-title">🈶 Kanji N2</div>
 
     <div class="card">
-      <div class="word">災害</div>
-      <div class="meaning">さいがい — bencana</div>
+  <div class="word" id="kanjiWord">理解</div>
 
-      <div class="example">
-        災害に備える。<br>
-        さいがいにそなえる。<br>
-        Bersiap menghadapi bencana.
-      </div>
+  <div class="meaning" id="kanjiMeaning">
+    りかい — pemahaman
+  </div>
 
-      <button onclick="nextKanji()">Kanji berikutnya</button>
-    </div>
-
+  <button onclick="nextKanji()">Kanji berikutnya</button>
+</div>
     <button class="back" onclick="showPage('home')">
       ← Kembali
     </button>
@@ -498,8 +494,21 @@ function showPage(page) {
 }
 
 
+  let kanjiIndex = 0;
+
 function nextKanji() {
-  alert("Kanji berikutnya akan kita tambahkan.");
+  kanjiIndex++;
+
+  if (kanjiIndex >= kanjiData.length) {
+    kanjiIndex = 0;
+  }
+
+  const item = kanjiData[kanjiIndex];
+
+  document.getElementById("kanjiWord").textContent = item.kanji;
+
+  document.getElementById("kanjiMeaning").textContent =
+    item.hiragana + " — " + item.arti;
 }
 
 
